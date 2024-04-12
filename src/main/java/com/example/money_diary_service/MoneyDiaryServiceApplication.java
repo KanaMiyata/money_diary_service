@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class MoneyDiaryServiceApplication {
-
-	public static void main(String[] args) {
-		SpringApplication.run(MoneyDiaryServiceApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(MoneyDiaryServiceApplication.class, args);
+    }
 
 }
+
