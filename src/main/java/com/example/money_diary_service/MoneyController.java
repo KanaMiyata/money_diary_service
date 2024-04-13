@@ -8,15 +8,15 @@ import java.util.List;
 @RestController
 public class MoneyController {
 
-    public MoneyController(Money_Diary_Mapper money_diary_Mapper) {
-        this.money_diary_mapper = money_diary_Mapper;
+    public MoneyController(MoneyDiaryMapper moneyDiaryMapper) {
+        this. moneyDiaryMapper = moneyDiaryMapper;
     }
 
-    private Money_Diary_Mapper money_diary_mapper;
+    private MoneyDiaryMapper moneyDiaryMapper ;
 
     @GetMapping("/money_diarys")
     List<Money_Diary> getMoney_diarys() {
-        List<Money_Diary> money_diarys = money_diary_mapper.findAll();
+        List<Money_Diary> money_diarys = moneyDiaryMapper.findAll();
         return money_diarys;
     }
 }

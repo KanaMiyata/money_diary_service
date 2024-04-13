@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 @Mapper
-public interface Money_Diary_Mapper {
+public interface MoneyDiaryMapper {
     @Select("SELECT * FROM money_diarys")
     List<Money_Diary> findAll();
 }
