@@ -7,16 +7,14 @@ import java.util.List;
 
 @RestController
 public class MoneyController {
+    private MoneyDiaryMapper moneyDiaryMapper;
 
     public MoneyController(MoneyDiaryMapper moneyDiaryMapper) {
-        this. moneyDiaryMapper = moneyDiaryMapper;
+        this.moneyDiaryMapper = moneyDiaryMapper;
     }
 
-    private MoneyDiaryMapper moneyDiaryMapper ;
-
-    @GetMapping("/money_diarys")
-    List<Money_Diary> getMoney_diarys() {
-        List<Money_Diary> money_diarys = moneyDiaryMapper.findAll();
-        return money_diarys;
+    @GetMapping("/money_diaries")
+    List<MoneyDiary> getMoneyDiaries() {
+        return moneyDiaryMapper.findAll();
     }
 }

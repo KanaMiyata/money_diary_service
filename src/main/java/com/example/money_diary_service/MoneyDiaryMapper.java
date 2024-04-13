@@ -7,6 +7,6 @@ import java.util.List;
 
 @Mapper
 public interface MoneyDiaryMapper {
-    @Select("SELECT * FROM money_diarys")
-    List<Money_Diary> findAll();
+    @Select("SELECT * FROM money_diaries")
+    List<MoneyDiary> findAll();
 }

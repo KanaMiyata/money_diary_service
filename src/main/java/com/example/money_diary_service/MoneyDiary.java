@@ -1,12 +1,10 @@
 package com.example.money_diary_service;
 
 import java.time.LocalDate;
-import java.util.Date;
-import java.util.Locale;
 
-public class Money_Diary {
+public class MoneyDiary {
     private int id;
-    private LocalDate day;
+    private LocalDate dateAdded;
     private String income;
     private String expense;
     private int amount;
@@ -16,8 +14,8 @@ public class Money_Diary {
         return id;
     }
 
-    public LocalDate getDay() {
-        return day;
+    public LocalDate getDateAdded() {
+        return dateAdded;
     }
 
     public String getIncome() {
@@ -32,9 +30,9 @@ public class Money_Diary {
         return comment;
     }
 
-    public Money_Diary(int id, LocalDate day, String income, String expense,int amount,String comment) {
+    public MoneyDiary(int id, LocalDate dateAdded, String income, String expense, int amount, String comment) {
         this.id = id;
-        this.day = day;
+        this.dateAdded = dateAdded;
         this.income = income;
         this.expense=expense;
         this.amount=amount;
