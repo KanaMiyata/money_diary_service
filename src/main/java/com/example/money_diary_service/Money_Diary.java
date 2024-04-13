@@ -6,41 +6,39 @@ import java.util.Locale;
 
 public class Money_Diary {
     private int id;
-    private LocalDate 日;
-    private String 収入;
-    private String 出費;
-    private int 金額;
-    private String コメント;
+    private LocalDate day;
+    private String income;
+    private String expense;
+    private int amount;
+    private String comment;
 
     public int getId() {
         return id;
     }
 
-    public LocalDate get日() {
-        return 日;
+    public LocalDate getDay() {
+        return day;
     }
 
-    public String get収入() {
-        return 収入;
+    public String getIncome() {
+        return income;
     }
-    public String get出費() {
-        return 出費;
+    public String getExpense() {
+        return expense;
     }
-    public int get金額(){ return 金額;}
+    public int getAmount(){ return amount;}
 
-    public String getコメント() {
-        return コメント;
+    public String getComment() {
+        return comment;
     }
 
-    public Money_Diary(int id, LocalDate 日, String 収入, String 出費,int 金額,String コメント) {
+    public Money_Diary(int id, LocalDate day, String income, String expense,int amount,String comment) {
         this.id = id;
-        this.日 = 日;
-        this.収入 = 収入;
-        this.出費=出費;
-        this.金額=金額;
-        this.コメント = コメント;
-
-
+        this.day = day;
+        this.income = income;
+        this.expense=expense;
+        this.amount=amount;
+        this.comment = comment;
     }
 }
 
