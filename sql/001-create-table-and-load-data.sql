@@ -1,19 +1,15 @@
-DROP TABLE IF EXISTS money_diarys;
+DROP TABLE IF EXISTS money_diaries;
 
-CREATE TABLE money_diarys (
+CREATE TABLE money_diaries (
  id int unsigned AUTO_INCREMENT,
- day LocalDate,
- income VARCHAR(100) NOT NULL,
- expense VARCHAR(100) NOT NULL,
- amount int,
- comment VARCHAR(100)NOT NULL,
-
+ DATE_ADDED DATE,
+ INCOME VARCHAR(100) NOT NULL,
+ EXPENSE VARCHAR(100) NOT NULL,
+ AMOUNT int,
+ COMMENT VARCHAR(100)NOT NULL,
  PRIMARY KEY(id)
 );
 
-INSERT INTO money_diarys (day,income,expense,amount,comment) VALUES ('2024-04-12', 'なし', '夜ごはん',-6000 '新宿');
-INSERT INTO money_diarys (day,income,expense,amount,comment) VALUES ('2024-04-12', 'なし','交通費' -188, '新宿から最寄り駅');
-INSERT INTO money_diarys (day,income,expense,amount,comment) VALUES ('2024-04-15', '給料日', 'なし',400000 '3月分給料');
-
-
-
+INSERT INTO money_diaries (DATE_ADDED, INCOME, EXPENSE, AMOUNT, COMMENT) VALUES ('2024-04-12', 'なし', '夜ごはん', -6000, '新宿');
+INSERT INTO money_diaries (DATE_ADDED, INCOME, EXPENSE, AMOUNT, COMMENT) VALUES ('2024-04-12', 'なし','交通費', -188, '新宿から最寄り駅');
+INSERT INTO money_diaries (DATE_ADDED, INCOME, EXPENSE, AMOUNT, COMMENT) VALUES ('2024-04-15', '給料日', 'なし',400000, '3月分給料');
