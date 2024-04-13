@@ -39,4 +39,3 @@ public class MoneyDiary {
         this.comment = comment;
     }
 }
-
