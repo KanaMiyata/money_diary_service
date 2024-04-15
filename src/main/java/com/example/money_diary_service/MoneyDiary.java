@@ -5,9 +5,9 @@ import java.time.LocalDate;
 public class MoneyDiary {
     private int id;
     private LocalDate dateAdded;
-    private String income;
-    private String expense;
-    private int amount;
+    private String transactionType;
+    private String itemName;
+    private double amount;
     private String comment;
 
     public int getId() {
@@ -18,24 +18,28 @@ public class MoneyDiary {
         return dateAdded;
     }
 
-    public String getIncome() {
-        return income;
+    public String getTransactionType() {
+        return transactionType;
     }
-    public String getExpense() {
-        return expense;
+
+    public String getItemName() {
+        return itemName;
     }
-    public int getAmount(){ return amount;}
+
+    public double getAmount() {
+        return amount;
+    }
 
     public String getComment() {
         return comment;
     }
 
-    public MoneyDiary(int id, LocalDate dateAdded, String income, String expense, int amount, String comment) {
+    public MoneyDiary(int id, LocalDate dateAdded, String transactionType, String itemName, double amount, String comment) {
         this.id = id;
         this.dateAdded = dateAdded;
-        this.income = income;
-        this.expense=expense;
-        this.amount=amount;
+        this.transactionType = transactionType;
+        this.itemName = itemName;
+        this.amount = amount;
         this.comment = comment;
     }
 }
