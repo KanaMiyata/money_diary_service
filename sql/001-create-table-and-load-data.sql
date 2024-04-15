@@ -1,16 +1,13 @@
-DROP TABLE IF EXISTS money_diarys;
-
-CREATE TABLE money_diarys (
- id int unsigned AUTO_INCREMENT,
- usingday DATE,
- category VARCHAR(100) NOT NULL,
- amount int,
- comment VARCHAR(100)NOT NULL,
-
+CREATE TABLE money_diaries (
+ id INTEGER unsigned AUTO_INCREMENT,
+ DATE_ADDED DATE,
+ TRANSACTION_TYPE VARCHAR(100) NOT NULL,
+ ITEM_NAME VARCHAR(100) NOT NULL,
+ AMOUNT DECIMAL(10, 2) NOT NULL,
+ COMMENT TEXT(100) NOT NULL,
  PRIMARY KEY(id)
 );
 
-INSERT INTO money_diarys (usingday, category, amount, comment) VALUES ('2024-04-12', 'food', 3500, 'good taste');
-INSERT INTO money_diarys (usingday, category, amount, comment) VALUES ('2024-04-12', 'transportation', 188, 'shinjuke-nearstation');
-
-
+INSERT INTO money_diaries (DATE_ADDED, TRANSACTION_TYPE, ITEM_NAME, AMOUNT, COMMENT) VALUES ('2024-04-12', '支出', '夜ごはん', -6000, '新宿');
+INSERT INTO money_diaries (DATE_ADDED, TRANSACTION_TYPE, ITEM_NAME, AMOUNT, COMMENT) VALUES ('2024-04-12', '支出', '交通費', -188, '新宿から最寄り駅');
+INSERT INTO money_diaries (DATE_ADDED, TRANSACTION_TYPE, ITEM_NAME, AMOUNT, COMMENT) VALUES ('2024-04-15', '収入', '給料日', 400000, '3月分給料');
