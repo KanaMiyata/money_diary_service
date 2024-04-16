@@ -2,8 +2,9 @@ package com.example.money_diary_service;
 
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.List;
 import java.util.Optional;
-
 
 @Service
 public class MoneyDiaryService {
@@ -13,12 +14,39 @@ public class MoneyDiaryService {
         this.moneyDiaryMapper = moneyDiaryMapper;
     }
 
-    public MoneyDiary findMoneyDiary(int id) {
-        Optional<MoneyDiary> moneyDiary = this.moneyDiaryMapper.findById(id);
+    public List<MoneyDiary> findAllRecords() {
+        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findAll();
+        if (!moneyDiary.isEmpty()) {
+            return moneyDiary;
+        } else {
+            throw new MoneyDiaryNotFoundException("No records in the database");
+        }
+    }
+
+    public MoneyDiary findRecordById(int id) {
+        Optional<MoneyDiary> moneyDiary = moneyDiaryMapper.findById(id);
         if (moneyDiary.isPresent()) {
             return moneyDiary.get();
         } else {
-            throw new MoneyDiaryNotFoundException("not found");
+            throw new MoneyDiaryNotFoundException("Record by id not found");
+        }
+    }
+
+    public List<MoneyDiary> findRecordByTransactionType(String type) {
+        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findByTransactionType(type);
+        if (!moneyDiary.isEmpty()) {
+            return moneyDiary;
+        } else {
+            throw new MoneyDiaryNotFoundException("Records by transaction type not found");
+        }
+    }
+
+    public List<MoneyDiary> findRecordByDates(LocalDate startDate, LocalDate endDate) {
+        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findByDates(startDate, endDate);
+        if (!moneyDiary.isEmpty()) {
+            return moneyDiary;
+        } else {
+            throw new MoneyDiaryNotFoundException("Records by dates not found");
         }
     }
 }

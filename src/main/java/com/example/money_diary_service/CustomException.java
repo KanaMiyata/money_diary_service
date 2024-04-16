@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.time.ZonedDateTime;
 import java.util.Map;
-@RestControllerAdvice
-public class Custom_Exception {
-    @ExceptionHandler(value = MoneyDiaryNotFoundException.class)
 
+@RestControllerAdvice
+public class CustomException {
+    @ExceptionHandler(value = MoneyDiaryNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleMoneyNotFoundException(
             MoneyDiaryNotFoundException e, HttpServletRequest request) {
         Map<String, String> body = Map.of(
