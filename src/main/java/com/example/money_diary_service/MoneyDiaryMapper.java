@@ -11,8 +11,8 @@ import java.util.Optional;
 @Mapper
 public interface MoneyDiaryMapper {
 
-    @Select("SELECT * FROM money_diaries")
-    List<MoneyDiary> findAll();
+   // @Select("SELECT * FROM money_diaries")
+    //List<MoneyDiary> findAll();
 
     @Select("SELECT * FROM money_diaries WHERE LIKE CONCAT(# {id})")
     List<MoneyDiary> findByMoneyDiary(int id);
