@@ -22,7 +22,7 @@ docker compose exec db mysql -uroot -p
 4. 結果を確認
 
 # ＡＰＩの使用
-|request| メゾット                                                                                             | 取得するもの               |
+|request| メソッド                                                                                             | 取得するもの               |
 |-------|--------------------------------------------------------------------------------------------------|----------------------|
 |GET| http://localhost:8080/money_diaries                                                              | 全件取得                 |
 |GET| http://localhost:8080/money_diaries/id                                                           | 指定したidのデータを出力        |
