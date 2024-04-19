@@ -10,7 +10,7 @@ import java.time.ZonedDateTime;
 import java.util.Map;
 
 @RestControllerAdvice
-public class CustomException {
+public class MoneyDiaryExceptionHandler {
     @ExceptionHandler(value = MoneyDiaryNotFoundException.class)
     public ResponseEntity<Map<String, String>> handleMoneyNotFoundException(
             MoneyDiaryNotFoundException e, HttpServletRequest request) {

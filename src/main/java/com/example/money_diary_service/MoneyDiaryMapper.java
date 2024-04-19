@@ -12,7 +12,7 @@ public interface MoneyDiaryMapper {
     @Select("SELECT * FROM money_diaries")
     List<MoneyDiary> findAll();
 
-    @Select("SELECT * FROM money_diaries WHERE LIKE CONCAT(# {id})")
+    @Select("SELECT * FROM money_diaries WHERE LIKE (# {id})")
     List<MoneyDiary> findByMoneyDiary(int id);
 
     @Select("SELECT * FROM money_diaries WHERE id =#{id}")

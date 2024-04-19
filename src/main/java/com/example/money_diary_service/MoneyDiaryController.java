@@ -17,18 +17,18 @@ public class MoneyDiaryController {
         this.moneyDiaryService = moneyDiaryService;
     }
 
-    @GetMapping("/money_diaries/all")
+    @GetMapping("/money_diaries")
     List<MoneyDiary> findAll() {
         return moneyDiaryService.findAllRecords();
-     }
+    }
 
     @GetMapping("/money_diaries/{id}")
     public Optional<MoneyDiary> findById(@PathVariable int id) {
         return Optional.ofNullable(moneyDiaryService.findRecordById(id));
     }
 
-    @GetMapping("/money_diaries/transaction")
-    public List<MoneyDiary> findByTransactionType(@RequestParam String type) {
+    @GetMapping("/money_diaries/transaction_type/{type}")
+    public List<MoneyDiary> findByTransactionType(@PathVariable String type) {
         return moneyDiaryService.findRecordByTransactionType(type);
     }
 
