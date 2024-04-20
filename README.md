@@ -22,12 +22,12 @@ docker compose exec db mysql -uroot -p
 4. 結果を確認
 
 # ＡＰＩの使用
-|request| メソッド                                                                                         | 取得するもの                             | 
-|-------|----------------------------------------------------------------------------------------------|------------------------------------|
-|GET| http://localhost:8080/money_diaries                                                          | money_diariesに格納したデータ（以下、データ）を全て出力 |
-|GET| http://localhost:8080/money_diaries/{id}                                                     | データのうち、指定したidのデータのみを出力             |
-GET| http://localhost:8080/money_diaries/http://localhost:8080/money_diaries/transaction_type/収入または支出 | データのうち、収入または支出の指定したデータを出力          |
-GET| http://localhost:8080/money_diaries/specified_period?startDay=取り出したいデータの初めの日&endDay=取り出したいデータの終わりの日          | データのうち、指定した期間のデータのみ出力              |
+|request| メソッド                                                                                                 | 取得するもの                             | 
+|-------|------------------------------------------------------------------------------------------------------|------------------------------------|
+|GET| http://localhost:8080/money_diaries                                                                  | money_diariesに格納したデータ（以下、データ）を全て出力 |
+|GET| http://localhost:8080/money_diaries/{id}                                                             | データのうち、指定したidのデータのみを出力             |
+GET| http://localhost:8080/money_diaries/http://localhost:8080/money_diaries/transaction_type/収入または支出     | データのうち、収入または支出の指定したデータを出力          |
+GET| http://localhost:8080/money_diaries/specified_period?startDay=取り出したいデータのはじめの日&endDay=取り出したいデータのおわりの日 | データのうち、指定した期間のデータのみ出力              |
 
 
 # ステータスコード
