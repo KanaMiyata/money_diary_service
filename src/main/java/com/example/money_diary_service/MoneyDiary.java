@@ -12,7 +12,7 @@ public class MoneyDiary {
     private String comment;
 
     public MoneyDiary(int id, LocalDate dateAdded, String transactionType, String itemName, double amount, String comment) {
-        this.id = id;
+        this.id = id; ;
         this.dateAdded = dateAdded;
         this.transactionType = transactionType;
         this.itemName = itemName;

@@ -1,5 +1,5 @@
 # このプロジェクトについて
-このプロジェクトでは、日にち、カテゴリー、金額、コメントを管理するREST APIを実装します。
+このプロジェクトでは、id、DATE（収支が発生した日）、TRANSACTION_TYPE（収入または支出）、ITEM_NAME（収入や支出の種類）金額（通貨の小数点以下を考慮）、コメントを管理するREST APIを実装します。
 
 
 
@@ -22,19 +22,28 @@ docker compose exec db mysql -uroot -p
 4. 結果を確認
 
 # ＡＰＩの使用
-|request| メソッド                                                                                             | 取得するもの               |
-|-------|--------------------------------------------------------------------------------------------------|----------------------|
-|GET| http://localhost:8080/money_diaries                                                              | 全件取得                 |
-|GET| http://localhost:8080/money_diaries/id                                                           | 指定したidのデータを出力        |
-GET| http://localhost:8080/money_diaries/http://localhost:8080/money_diaries/transaction_type/収入または支出 | 収入または支出の取り出したいデータを出力 |
-GET| http://localhost:8080/money_diaries/date?startDay=取り出したいデータの初めの日&endDay=取り出したいデータの終わりの日          | 指定した期間のデータのみ出力       |
+|request| メソッド                                                                                         | 取得するもの                             | 
+|-------|----------------------------------------------------------------------------------------------|------------------------------------|
+|GET| http://localhost:8080/money_diaries                                                          | money_diariesに格納したデータ（以下、データ）を全て出力 |
+|GET| http://localhost:8080/money_diaries/{id}                                                     | データのうち、指定したidのデータのみを出力             |
+GET| http://localhost:8080/money_diaries/http://localhost:8080/money_diaries/transaction_type/収入または支出 | データのうち、収入または支出の指定したデータを出力          |
+GET| http://localhost:8080/money_diaries/specified_period?startDay=取り出したいデータの初めの日&endDay=取り出したいデータの終わりの日          | データのうち、指定した期間のデータのみ出力              |
 
-date?startDay=2024-04-20&endDay=2024-04-25
+
 # ステータスコード
 
+## データが存在する場合
+| request | メソッド                                                                                  | ステータスコード | 説明 |
+|---------|---------------------------------------------------------------------------------------|----------|----|
+| GET     | http://localhost:8080/money_diaries                                                   | 200      | OK 
+| GET     | http://localhost:8080/money_diaries/{id}                                              | 200      | OK 
+| GET     | http://localhost:8080/money_diaries/http://localhost:8080/money_diaries/transaction_type/収入または支出 | 200      | OK |
+| GET     | http://localhost:8080/money_diaries/specified_period?startDate=取り出したいデータの初めの日&endDate=取り出したいデータの終わりの日 |200|OK|
 
-| ステータスコード         | 説明          |
-|------------------|-------------|
-| 200            | OK     |   
-| 404| NotFound|
-
+## データが存在しない場合
+|request| メソッド                                                                                  |ステータスコード| 説明                               |
+|-------|---------------------------------------------------------------------------------------|-------------|----------------------------------|
+|GET| http://localhost:8080/money_diaries                                                   |404| messageにNo records in the databaseを返す |
+|GET| http://localhost:8080/money_diaries/{id}                                              |404| messageにRecord by id not foundを返す |
+|GET| http://localhost:8080/money_diaries/http://localhost:8080/money_diaries/transaction_type/収入または支出 |404| Records by transaction type not foundを返す |
+|GET| http://localhost:8080/money_diaries/specified_period?startDate=取り出したいデータの初めの日&endDate=取り出したいデータの終わりの日 |404| Records by dates not foundを返す    |

@@ -32,7 +32,7 @@ public class MoneyDiaryController {
         return moneyDiaryService.findRecordByTransactionType(type);
     }
 
-    @GetMapping("/money_diaries/dates")
+    @GetMapping("/money_diaries/specified_period")
     public List<MoneyDiary> findByDates(@RequestParam LocalDate startDate, @RequestParam LocalDate endDate) {
         return moneyDiaryService.findRecordByDates(startDate, endDate);
     }
