@@ -14,15 +14,6 @@ public class MoneyDiaryService {
         this.moneyDiaryMapper = moneyDiaryMapper;
     }
 
-    public List<MoneyDiary> findAllRecords() {
-        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findAll();
-        if (!moneyDiary.isEmpty()) {
-            return moneyDiary;
-        } else {
-            throw new MoneyDiaryNotFoundException("No records in the database");
-        }
-    }
-
     public MoneyDiary findRecordById(int id) {
         Optional<MoneyDiary> moneyDiary = moneyDiaryMapper.findById(id);
         if (moneyDiary.isPresent()) {
@@ -41,12 +32,15 @@ public class MoneyDiaryService {
         }
     }
 
-    public List<MoneyDiary> findRecordByDates(LocalDate startDate, LocalDate endDate) {
-        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findByDates(startDate, endDate);
+    public List<MoneyDiary> findRecordBy(LocalDate startDate, LocalDate endDate) {
+        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findAll();
+        if (startDate != null && endDate != null) {
+            moneyDiary = moneyDiaryMapper.findByDates(startDate, endDate);
+        }
         if (!moneyDiary.isEmpty()) {
             return moneyDiary;
         } else {
-            throw new MoneyDiaryNotFoundException("Records by dates not found");
+            throw new MoneyDiaryNotFoundException("Records not found");
         }
     }
 }

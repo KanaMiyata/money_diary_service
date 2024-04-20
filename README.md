@@ -54,7 +54,7 @@ http://localhost:8080/money_diaries/transaction_type/収入または支出
 |GET| ✖      |４０４|Records by transaction type not foundを返す  |
 
 ### ④メソッド
-http://localhost:8080/money_diaries/取り出したいデータの初めの日/終わりの日
+http://localhost:8080/startDate=指定したい期間の初めの日&endDate=指定したい期間の終わりの日
 #### 取得できるもの
 データのうち、指定した期間のデータのみ出力
 #### ステータスコード

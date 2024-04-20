@@ -17,11 +17,6 @@ public class MoneyDiaryController {
         this.moneyDiaryService = moneyDiaryService;
     }
 
-    @GetMapping("/money_diaries")
-    List<MoneyDiary> findAll() {
-        return moneyDiaryService.findAllRecords();
-    }
-
     @GetMapping("/money_diaries/{id}")
     public Optional<MoneyDiary> findById(@PathVariable int id) {
         return Optional.ofNullable(moneyDiaryService.findRecordById(id));
@@ -32,9 +27,9 @@ public class MoneyDiaryController {
         return moneyDiaryService.findRecordByTransactionType(type);
     }
 
-    @GetMapping("/money_diaries/{startDate}/{endDate}")
-    public List<MoneyDiary> findByDates(@PathVariable LocalDate startDate,
-                                        @PathVariable LocalDate endDate) {
-        return moneyDiaryService.findRecordByDates(startDate, endDate);
+    @GetMapping("/money_diaries")
+    public List<MoneyDiary> findRecords(@RequestParam(required = false) LocalDate startDate,
+                                        @RequestParam(required = false) LocalDate endDate) {
+        return moneyDiaryService.findRecordBy(startDate, endDate);
     }
 }
