@@ -23,8 +23,10 @@ public class MoneyDiaryService {
         }
     }
 
-    public List<MoneyDiary> findByDates_and_transactionType(LocalDate startDate, LocalDate endDate, String transactionType) {
-        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findByDates_and_transactionType(startDate, endDate, transactionType);
+    public List<MoneyDiary> findByDatesAndTransactionType(LocalDate startDate, LocalDate endDate, String transactionType) {
+        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findByDatesAndTransactionType(startDate, endDate, transactionType);
         return moneyDiary;
     }
 }
+
+

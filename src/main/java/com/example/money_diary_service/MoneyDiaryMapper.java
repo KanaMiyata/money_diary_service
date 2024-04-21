@@ -18,12 +18,6 @@ public interface MoneyDiaryMapper {
     @Select("SELECT * FROM money_diaries WHERE id =#{id}")
     Optional<MoneyDiary> findById(int id);
 
-    @Select("SELECT * FROM money_diaries WHERE TRANSACTION_TYPE =#{transactionType}")
-    List<MoneyDiary> findByTransactionType(String type);
-
-    @Select("SELECT * FROM money_diaries WHERE DATE_ADDED BETWEEN #{startDate} AND #{endDate}")
-    List<MoneyDiary> findByDates(LocalDate startDate, LocalDate endDate);
-
     @Select("SELECT * FROM money_diaries WHERE DATE_ADDED BETWEEN #{startDate} AND #{endDate} AND TRANSACTION_TYPE = #{transactionType}")
-    List<MoneyDiary> findByDates_and_transactionType(LocalDate startDate, LocalDate endDate, String transactionType);
+    List<MoneyDiary> findByDatesAndTransactionType(LocalDate startDate, LocalDate endDate, String transactionType);
 }
