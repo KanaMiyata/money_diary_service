@@ -23,11 +23,9 @@ public class MoneyDiaryController {
     }
 
     @GetMapping("/money_diaries")
-    public List<MoneyDiary> findRecordBy(@RequestParam LocalDate startDate,
-                                         @RequestParam LocalDate endDate,
-                                         @RequestParam String transactionType) {
-        return moneyDiaryService.findRecordBy(startDate, endDate, transactionType);
+    public List<MoneyDiary> findByDates_and_transactionType(@RequestParam LocalDate startDate,
+                                                            @RequestParam LocalDate endDate,
+                                                            @RequestParam String transactionType) {
+        return moneyDiaryService.findByDates_and_transactionType(startDate, endDate, transactionType);
     }
 }
-
-
