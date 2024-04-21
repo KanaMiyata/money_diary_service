@@ -22,32 +22,25 @@ public class MoneyDiaryService {
             throw new MoneyDiaryNotFoundException("Record by id not found");
         }
     }
-    public List<MoneyDiary> findRecordBy(LocalDate startDate, LocalDate endDate, String type) {
-        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findAll();
-        if (type != null) {
-            moneyDiary = moneyDiaryMapper.findByTransactionType(type);
-        }
+
+    public List<MoneyDiary> findRecordByTransactionType(String type) {
+        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findByTransactionType(type);
         if (!moneyDiary.isEmpty()) {
             return moneyDiary;
         } else {
             throw new MoneyDiaryNotFoundException("Records by transaction type not found");
-
-            public List<MoneyDiary> findRecordBy LocalDate;
-            (LocalDate startDate, LocalDate endDate) {
-                List<MoneyDiary> moneyDiary = moneyDiaryMapper.findAll();
-                if (startDate != null && endDate != null) {
-                    moneyDiary = moneyDiaryMapper.findByDates(startDate, endDate);
-                }
-                if (!moneyDiary.isEmpty()) {
-                    return moneyDiary;
-                } else {
-                    throw new MoneyDiaryNotFoundException("Records not found");
-                }
-
-
         }
     }
 
-}
+    public List<MoneyDiary> findRecordBy(LocalDate startDate, LocalDate endDate) {
+        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findAll();
+        if (startDate != null && endDate != null) {
+            moneyDiary = moneyDiaryMapper.findByDates(startDate, endDate);
+        }
+        if (!moneyDiary.isEmpty()) {
+            return moneyDiary;
+        } else {
+            throw new MoneyDiaryNotFoundException("Records not found");
+        }
     }
-
+}
