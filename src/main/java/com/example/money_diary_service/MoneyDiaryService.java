@@ -32,7 +32,7 @@ public class MoneyDiaryService {
         }
     }
 
-    public List<MoneyDiary> findRecordBy(LocalDate startDate, LocalDate endDate) {
+    public List<MoneyDiary> findRecordBy(LocalDate startDate, LocalDate endDate,String transactionType) {
         List<MoneyDiary> moneyDiary = moneyDiaryMapper.findAll();
         if (startDate != null && endDate != null) {
             moneyDiary = moneyDiaryMapper.findByDates(startDate, endDate);
