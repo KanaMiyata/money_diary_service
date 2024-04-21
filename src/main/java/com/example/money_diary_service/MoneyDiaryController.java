@@ -1,5 +1,6 @@
 package com.example.money_diary_service;
 
+import org.apache.ibatis.transaction.Transaction;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,15 +22,12 @@ public class MoneyDiaryController {
     public Optional<MoneyDiary> findById(@PathVariable int id) {
         return Optional.ofNullable(moneyDiaryService.findRecordById(id));
     }
-
-    @GetMapping("/money_diaries/transaction_type/{type}")
-    public List<MoneyDiary> findByTransactionType(@PathVariable String type) {
-        return moneyDiaryService.findRecordByTransactionType(type);
-    }
-
     @GetMapping("/money_diaries")
-    public List<MoneyDiary> findRecords(@RequestParam(required = false) LocalDate startDate,
-                                        @RequestParam(required = false) LocalDate endDate) {
-        return moneyDiaryService.findRecordBy(startDate, endDate);
+    public List<MoneyDiary> findRecordBy(@RequestParam LocalDate startDate,
+                            @RequestParam LocalDate endDate,
+                            @RequestParam String type) {
+        return moneyDiaryService.findRecordBy(startDate,endDate,type);
     }
 }
+
+
