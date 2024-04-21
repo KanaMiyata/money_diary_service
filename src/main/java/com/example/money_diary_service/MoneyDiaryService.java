@@ -32,15 +32,8 @@ public class MoneyDiaryService {
         }
     }
 
-    public List<MoneyDiary> findRecordBy(LocalDate startDate, LocalDate endDate,String transactionType) {
-        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findAll();
-        if (startDate != null && endDate != null) {
-            moneyDiary = moneyDiaryMapper.findByDates(startDate, endDate);
-        }
-        if (!moneyDiary.isEmpty()) {
-            return moneyDiary;
-        } else {
-            throw new MoneyDiaryNotFoundException("Records not found");
-        }
+    public List<MoneyDiary> findRecordBy(LocalDate startDate, LocalDate endDate, String transactionType) {
+        List<MoneyDiary> moneyDiary = moneyDiaryMapper.findByDates(startDate, endDate);
+        return moneyDiary;
     }
 }
