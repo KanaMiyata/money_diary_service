@@ -1,3 +1,4 @@
+
 package com.example.money_diary_service;
 
 import java.time.LocalDate;
@@ -9,6 +10,15 @@ public class MoneyDiary {
     private String itemName;
     private double amount;
     private String comment;
+
+    public MoneyDiary(int id, LocalDate dateAdded, String transactionType, String itemName, double amount, String comment) {
+        this.id = id; ;
+        this.dateAdded = dateAdded;
+        this.transactionType = transactionType;
+        this.itemName = itemName;
+        this.amount = amount;
+        this.comment = comment;
+    }
 
     public int getId() {
         return id;
@@ -32,14 +42,5 @@ public class MoneyDiary {
 
     public String getComment() {
         return comment;
-    }
-
-    public MoneyDiary(int id, LocalDate dateAdded, String transactionType, String itemName, double amount, String comment) {
-        this.id = id;
-        this.dateAdded = dateAdded;
-        this.transactionType = transactionType;
-        this.itemName = itemName;
-        this.amount = amount;
-        this.comment = comment;
     }
 }

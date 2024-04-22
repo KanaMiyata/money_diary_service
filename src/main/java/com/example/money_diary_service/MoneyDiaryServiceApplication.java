@@ -8,6 +8,4 @@ public class MoneyDiaryServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(MoneyDiaryServiceApplication.class, args);
     }
-
 }
-
